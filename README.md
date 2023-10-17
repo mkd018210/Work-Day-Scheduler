@@ -16,6 +16,8 @@ Motivation
 
 Success
 
+Contributers
+I used the starter code from class from crispy-octoo-meme on Github. Then I added and changed part of the code to make it work.
 
 User Story
 AS AN employee with a busy schedule
