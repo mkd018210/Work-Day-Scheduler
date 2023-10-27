@@ -1,23 +1,24 @@
 # Work-Day-Scheduler
-About.
+About:
 This application allows employees to plan their day out hour by hour.
 
-Description.
+Description:
 This application allows the employee to click on each time and add events they need to do for the day. It also shows the employee if the event is in the past, present, or future by the color of the time block.
 
-Challenges
+Challenges:
+One of the challanges I had was getting the date to come up on the top of the screen.
 
+Future Development:
+For the future I would like for the application to change the times automatically if the user changes time zones.
 
-Future Development
+Motivation:
+My motivation was to create a useful daily scheduler users can use.
 
-
-Motivation
-
-
-Success
+Success:
+I had success in getting the times to show up and the colors to change correctly.
 
 Contributers
-I used the starter code from class from crispy-octoo-meme on Github. Then I added and changed part of the code to make it work.
+I used the starter code from class from crispy-octoo-meme on Github. Then I added and changed part of the code to try and make it work.
 
 User Story
 AS AN employee with a busy schedule
