@@ -17,7 +17,7 @@ $(function () {
       $(this).toggleclass('future', blockHour > currentHour);
     });
   }
-}
+
   function textEntry() {
     $('.saveBtn').on('click', function () {
       const key = $(this).parent().attr('id');
@@ -26,23 +26,36 @@ $(function () {
     });
   }
 
-$('.time-block').each(function () {
+  function refreshColor() {
+    $('.time-block').each(function () {
+      const blockHour = parseInt(this.id);
+      if (blockHour == currentHour) {
+        $(this).removeClass('past future').addClass('present');
+      } else if (blockHour < currentHour) {
+        $(this).removeClass('future present').addClass('past');
+      } else {
+        $(this).removeClass('past present').addClass('future');
+      }
+    });
+  }
+
+  $('.time-block').each(function () {
     const key = $(this).attr('id');
     const value = localStorage.getItem(key);
-    $(this).children('description').val(value);
+    $(this).children('.description').val(value);
   });
-
-function updateTime() {
-  const dateElement = $('#date');
-  const timeElement = $('#time');
-  const currentDate = dayjs().format('ddd, MMMM, yyyy');
-  const currentTime = dayjs().format(hh: mm: ss);
-  dateElement.text(currentDate);
-  timeElement.text(currentTime);
-}
-
-textEntry();
-
+  function updateTime() {
+    const dateElement = $('#date');
+    const timeElement = $('#time');
+    const currentDate = dayjs().format('ddd, MMMM, yyyy');
+    const currentTime = dayjs().format('hh:mm:ss');
+    dateElement.text(currentDate);
+    timeElement.text(currentTime);
+  }
+  hourlyColor();
+  textEntry();
+  refreshColor();
+});
 
 // TODO: Add code to display the current date in the header of the page.
 // TODO: Add a listener for click events on the save button. This code should
