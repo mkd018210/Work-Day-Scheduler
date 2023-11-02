@@ -9,10 +9,8 @@ $(document).ready(function () {
   var storedEvents = JSON.parse(localStorage.getItem("storedEvents"));
   if (storedEvents !== null) {
     eventArray = storedEvents;
-  } else {
-    eventArray = new Array(8);
-    eventArray[3] = "Lunch Meeting"
-    } 
+  } 
+   
 
     var plannerDiv = $("#planner");
     plannerDiv.empty();
