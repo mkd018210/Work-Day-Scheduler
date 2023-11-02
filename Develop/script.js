@@ -1,49 +1,29 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-
-
 const localSettings = {};
-dayjs.locale(localSettings);
-$(function () {
+dayjs.local(localSettings);
 
-  const currentHour = dayjs().format('H');
-
-  function hourlyColor() {
-    $('.time-block').each(function () {
-      const blockHour = parseInt(this.id);
-      $(this).toggleClass('past', blockHour < currentHour);
-      $(this).toggleClass('present', blockHour === currentHour);
-      $(this).toggleclass('future', blockHour > currentHour);
-    });
-  }
-}
-  function textEntry() {
-    $('.saveBtn').on('click', function () {
-      const key = $(this).parent().attr('id');
-      const value = $(this).siblings('.description').val();
-      localStorage.setItem(key, value);
-    });
-  }
-
-$('.time-block').each(function () {
-    const key = $(this).attr('id');
-    const value = localStorage.getItem(key);
-    $(this).children('description').val(value);
+function textEntry() {
+  $('saveBtn').on('click', function () {
+    const key = $(this).parent().attr('id');
+    const value = $(this).siblings('.description').val();
+    localStorage.setItem(key, value);
   });
-
-function updateTime() {
-  const dateElement = $('#date');
-  const timeElement = $('#time');
-  const currentDate = dayjs().format('ddd, MMMM, yyyy');
-  const currentTime = dayjs().format(hh: mm: ss);
-  dateElement.text(currentDate);
-  timeElement.text(currentTime);
 }
 
-textEntry();
-
-
+function refreshColor() {
+  $('.time-block').each(function () {
+    const blockHour = parseInt(this.id);
+    if (blockHour < currentHour) {
+      blockHour.addClass("past");
+    } else if (blockHour > currentHour) {
+      blockHour.addClass("future");
+    } else {
+      blockHour.addClass("present");
+    }
+  })
+}
 // TODO: Add code to display the current date in the header of the page.
 // TODO: Add a listener for click events on the save button. This code should
 // use the id in the containing time-block as a key to save the user input in
